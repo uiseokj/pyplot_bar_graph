@@ -6,13 +6,15 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 from pylab import figure, axes, pie, title, savefig
 
+
 def main(fileName):
 	imgName = fileName.replace('csv', 'png')
 
 	df = pd.read_csv(fileName, names=['YEAR', 'BASIN_CD', 'BASIN_MAP', 'STN_CD', 'STN_MAP'])
-	#print(df.YEAR)
+	
 	basinCd = df.BASIN_CD[0]
 	stnCd = df.STN_CD[0]
+	
 	startYear = min(df.YEAR)
 	endYear = max(df.YEAR)
 
@@ -27,9 +29,11 @@ def main(fileName):
 	plt.ylabel('Prcp(mm)', size=15)
 	plt.xticks(range(int(startYear), int(endYear) + 2, 2))
 	plt.grid(True)
+	
 	#plt.show()
 	savefig('graph_year/' + imgName)
 
+	
 if __name__ == "__main__":
 	if ( len(sys.argv) < 2 ):
 		print("Usage python3 graph_year.py filename")
