@@ -54,7 +54,7 @@ def main(fileName):
 	
 if __name__ == "__main__":
 	if ( len(sys.argv) < 2 ):
-		print("Usage python3 graph_season.py filename")
+		print("Usage python3 plot_multiple_graph.py filename")
 		sys.exit()
 
 	main(sys.argv[1])
