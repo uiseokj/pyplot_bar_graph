@@ -6,10 +6,12 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 from pylab import figure, axes, pie, title, savefig
 
+
 def main(fileName):
 	imgName = fileName.replace('csv', 'png')
 
 	df = pd.read_csv(fileName, names=['YEAR', 'SEASON', 'BASIN_CD', 'BASIN_MAP', 'STN_CD', 'STN_MAP'])
+	
 	df['SEASON'].replace(r'^S', '',inplace=True, regex=True)
 	df['SEASON'].astype(float)
 
@@ -49,6 +51,7 @@ def main(fileName):
 
 	savefig('graph_season/' + imgName)
 
+	
 if __name__ == "__main__":
 	if ( len(sys.argv) < 2 ):
 		print("Usage python3 graph_season.py filename")
